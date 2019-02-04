@@ -85,18 +85,26 @@
       left: 0;
       transition: color @time-description, top @time-description,
         left @time-description, font-size @time-description;
+      @media @xs {
+        left: 2.5%;
+      }
     }
   }
 
   .label {
-    font-size: @subtitle-size;
+    height: 15px;
     color: white;
     position: absolute;
     top: 50%;
-    left: 10px;
-
+    left: 0;
+    font-family: TT Norms Light;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 16px;
+    font-size: 14px;
     @media @xs {
-      top: 18px;
+      left: 5%;
+      top: 14px;
     }
 
     transition: color @time-description,
@@ -113,6 +121,9 @@
     left: 0;
     transition: color @time-description, top @time-description,
       left @time-description, font-size @time-description;
+    @media @xs {
+      left: 2.5%;
+    }
   }
 }
 

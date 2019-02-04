@@ -28,13 +28,22 @@ form {
   justify-content: center;
   align-items: flex-end;
   height: @form-height;
-  margin-top: 25px;
+  margin-top: 48px;
   .input-primary {
     margin-right: 20px;
+    @media @xs {
+      margin: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     input {
       margin: 0;
       border: 0;
       padding-left: 10px;
+      padding-bottom: 5px;
       display: inline-block;
       vertical-align: middle;
       white-space: normal;
@@ -45,9 +54,17 @@ form {
       transition: color @time-description, border-bottom @time-description;
       height: @input-height;
       width: 300px;
-      font-size: @subtitle-size;
       margin-top: -3px;
       margin-right: 20px;
+      font-family: TT Norms Medium;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 21px;
+      font-size: 18px;
+      @media @xs {
+        margin: 0;
+        width: 90%;
+      }
       &:focus {
         outline: 0;
       }
@@ -68,7 +85,7 @@ form {
   .btn-primary {
     height: 50px;
     border-radius: 15px;
-    padding: 0 35px;
+    padding: 0 45px;
     background: #990e1f;
     color: #fff;
     display: flex;
@@ -76,6 +93,15 @@ form {
     justify-content: center;
     align-items: center;
     transition: color .3s, background .3s;
+    font-family: TT Norms Light;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 28px;
+    font-size: 18px;
+    @media @xs {
+      margin-top: 20px;
+      width: 65%;
+    }
     &:hover {
         color: #000;
         background: #fff;
