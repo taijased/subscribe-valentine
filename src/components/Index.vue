@@ -48,24 +48,8 @@ export default {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(this.email);
     },
-    toggleFullScreen() {
-      var elem = document.documentElement;
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        /* Firefox */
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) {
-        /* Chrome, Safari and Opera */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        /* IE/Edge */
-        elem.msRequestFullscreen();
-      }
-    }
   },
   created() {
-    this.toggleFullScreen();
     this.$nextTick(() => {
       Heart.runHeart();
       setTimeout(() => {

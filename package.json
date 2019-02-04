@@ -12,6 +12,7 @@
     "less-loader": "^4.1.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
+    "terser": "3.14",
     "vue": "^2.5.22"
   },
   "devDependencies": {
@@ -20,5 +21,8 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.21"
+  },
+  "resolutions": {
+    "terser": "3.14.1"
   }
 }
