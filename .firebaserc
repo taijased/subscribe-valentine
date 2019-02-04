@@ -1,1 +1,6 @@
-{}
+{
+  "projects": {
+    "temp-valentine": "temp-valentine",
+    "default": "temp-valentine"
+  }
+}
