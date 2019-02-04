@@ -1,0 +1,190 @@
+@import url("./variables.less");
+@webkit: true;
+@moz: false;
+@ms: false;
+@o: false;
+
+.hardwareAccel() {
+  .prefixed(transform, perspective(1px) translateZ(0));
+}
+
+.forceBlockLevel() {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hacks() {
+  .forceBlockLevel();
+  .hardwareAccel();
+}
+
+
+
+.prefixed(@property, @value) {
+  & when (@webkit =true) {
+    -webkit-@{property}: @value;
+  }
+
+  & when (@moz =true) {
+    -moz-@{property}: @value;
+  }
+
+  & when (@ms =true) {
+    -ms-@{property}: @value;
+  }
+
+  & when (@o =true) {
+    -o-@{property}: @value;
+  }
+
+  @{property}: @value;
+}
+
+// prefix keyframes
+.keyframes(@name;
+
+@content) {
+  & when (@webkit =true) {
+    @-webkit-keyframes @name {
+      @content();
+    }
+  }
+
+  & when (@moz =true) {
+    @-moz-keyframes @name {
+      @content();
+    }
+  }
+
+  & when (@ms =true) {
+    @-ms-keyframes @name {
+      @content();
+    }
+  }
+
+  & when (@o =true) {
+    @-o-keyframes @name {
+      @content();
+    }
+  }
+
+  @keyframes @name {
+    @content();
+  }
+}
+
+.input-hover() {
+
+  &:focus-within,
+  &:hover {
+    .label {
+      font-size: @subtitle-size - 2;
+      top: 0;
+      left: 0;
+      transition: color @time-description, top @time-description,
+        left @time-description, font-size @time-description;
+    }
+  }
+
+  .label {
+    font-size: @subtitle-size;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+
+    @media @xs {
+      top: 18px;
+    }
+
+    transition: color @time-description,
+    top @time-description,
+    left @time-description,
+    font-size @time-description;
+    z-index: 2;
+    transform: translate(0, -50%);
+  }
+
+  .not-empty {
+    font-size: @subtitle-size - 2;
+    top: 0;
+    left: 0;
+    transition: color @time-description, top @time-description,
+      left @time-description, font-size @time-description;
+  }
+}
+
+
+// hover animation
+.underline-from-right() {
+
+  .hacks();
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    height: 1px;
+    .prefixed(transition-property, "left");
+    .prefixed(transition-duration, @time-description);
+    .prefixed(transition-timing-function, ease-out);
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: 1px solid red;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+
+    &:before {
+      left: 100%;
+    }
+  }
+
+}
+
+
+.fade-enter {
+  -webkit-transform: translateX(@fade-left-width);
+  transform: translateX(@fade-left-width);
+  opacity: 0;
+}
+
+.fade-enter-to {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.fade-leave {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.fade-leave-to {
+  -webkit-transform: translateX(@fade-right-width);
+  transform: translateX(@fade-right-width);
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity @time-description, transform @time-description;
+}
+
+.fade-leave-active {
+  transition: opacity @time-description, transform @time-description;
+}
