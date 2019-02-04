@@ -97,7 +97,6 @@ main {
     font-weight: normal;
     font-size: 20px;
     text-align: center;
-    letter-spacing: -0.875px;
     margin: 18px 0;
     @media @xs {
       font-size: 14px;

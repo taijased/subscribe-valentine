@@ -1,11 +1,9 @@
-<template>
-  <form class="for-mobile">
-    <div class="input-primary">
-      <input v-model="login" type="text" required>
-      <div class="label" :class="{'not-empty': login !== ''}">*E-mail</div>
-    </div>
-    <div class="btn-primary">Получить промокод</div>
-  </form>
+<template lang="pug">
+  form(class="for-mobile")
+    .input-primary
+      input(v-model="login", type="text", required)
+      .label(class="label", :class="{'not-empty': login !== ''}") *E-mail
+    .btn-primary Получить промокод
 </template>
 
 <script>
